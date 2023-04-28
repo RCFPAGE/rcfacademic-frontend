@@ -1,0 +1,234 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,700;1,400&display=swap");
+
+/******************** REMOVE DEFAULT STYLES ********************/
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+/******************** SCSS GLOBAL VARIABLES ********************/
+$grayHue: 240;
+$primaryColor: #29176a;
+$secondaryColor: #0eace7;
+//  $primaryColorLignt: #2d1631;
+$secondaryColorLight: #e7f7fd;
+//  $secondaryColorDark:rgba(219, 149, 110, 1);
+$colorWhite: #ffffff;
+$colorBlack: #000000;
+$colorWhiteLight: rgba(255, 255, 255, 0.3);
+$colorGray100: hsl(
+  $grayHue,
+  47%,
+  94%
+); /*almost white colour lightness is almost 100%*/
+//  $secondaryColorButton: linear-gradient(180deg, #DB956E 0%, rgba(219, 149, 110, 0.36) 100%);
+//  $secondaryColorHover: linear-gradient(170deg, #DB956E 0%, rgba(219, 149, 110, 0.36) 100%);
+$colorGray200: hsla(0, 0%, 100%, 0.3);
+
+$container-width-lg: 76%;
+$container-width-md: 90%;
+
+$transition: all 500ms ease; /* make sure all transition have a constant effect*/
+
+::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+::-webkit-scrollbar-track {
+  background: $secondaryColor;
+  margin-block: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 100vw;
+  background: $secondaryColorLight;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Open Sans", "san-serif";
+  line-height: 1.6;
+  font-size: 0.9rem;
+  background-color: $secondaryColorLight;
+  //  background-color: $primaryColor;
+  //  overflow-x: hidden;
+}
+
+.container {
+  width: $container-width-lg;
+  max-width: 1920px;
+  margin-inline: auto;
+}
+
+.link {
+  color: $colorWhite;
+}
+
+.btn-lg {
+  font-size: 1.2rem;
+  background: $secondaryColor;
+  color: $colorGray100;
+  border-radius: 2rem;
+  padding: 1rem;
+  border: 3px solid $secondaryColor;
+  transition: $transition;
+
+  &:hover {
+    background: $primaryColor;
+    transition: $transition;
+  }
+}
+
+.headline {
+  background-color: $secondaryColor;
+  height: 0.2rem;
+  margin: 0.3rem auto 1.3rem;
+  width: 20%;
+}
+
+.none {
+  display: none;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0.5px solid rgba(255, 255, 255, 0.3);
+  margin: 1em 0;
+  padding: 0;
+}
+
+.btn1 {
+  display: inline-block;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: $colorWhite;
+  width: fit-content;
+  padding: 0.5rem 1.7rem;
+  background-color: $secondaryColor;
+  border-radius: 0.5rem;
+  transition: $transition;
+  border: 2px solid $secondaryColor;
+
+  &:hover {
+    background: $primaryColor;
+    transition: $transition;
+    transform: translateY(-0.2rem);
+  }
+}
+.btn2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: $colorWhite;
+  width: fit-content;
+  padding: 0.7rem 1.7rem;
+  background-color: $primaryColor;
+  border-radius: 0.5rem;
+  transition: $transition;
+  border: 2px solid $primaryColor;
+
+  &:hover {
+    background: $secondaryColor;
+    transition: $transition;
+    transform: translateY(-0.2rem);
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.1;
+  color: var(--color-black);
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.4rem;
+  color: $colorWhite;
+}
+
+h4 {
+  font-size: 1.1rem;
+}
+
+h5 {
+  font-size: 0.95rem;
+}
+
+h6 {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.book__title {
+  color: $primaryColor;
+}
+
+/* MEDIA QUERIES (tablets) */
+@media screen and (max-width: 1024px) {
+  body {
+    font-size: 1rem;
+  }
+
+  .container {
+    width: var(--container-width-md);
+  }
+
+  section {
+    padding: 8rem 0;
+  }
+
+  section > p {
+    width: 72%;
+    margin-bottom: 3rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+/* MEDIA QUERIES (phones) */
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 2.4rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  h4 {
+    font-size: 1rem;
+  }
+
+  .btn {
+    padding: 0.6rem 1.5rem;
+  }
+}
