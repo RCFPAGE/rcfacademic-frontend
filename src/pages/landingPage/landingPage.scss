@@ -1,0 +1,250 @@
+@use "./../../index" as var; // import global variable as an alias
+
+/*************** Medium Screen size ***************/
+@mixin tablet {
+  @media screen and (max-width: 1024px) {
+    @content;
+  }
+}
+
+/********** Mobile Screen size **********/
+@mixin mobile {
+  @media screen and (max-width: 720px) {
+    @content;
+  }
+}
+
+.landing__page {
+  // z-index: 9;
+  height: 85vh;
+  @include mobile {
+    height: 85vh;
+  }
+  .middle__section {
+    display: grid;
+    margin-top: 1rem;
+    grid-template-columns: 1fr 1fr;
+    .middle__section-right {
+      // overflow-y: hidden; /* Hide vertical scrollbar */
+      // overflow-x: hidden; /* Hide horizontal scrollbar */
+      .pagination {
+        display: none;
+        @include tablet() {
+          display: flex;
+          justify-content: center;
+          gap: -1rem;
+          flex-wrap: wrap;
+        }
+      }
+    }
+
+    .middle__section-left {
+      overflow-y: hidden; /* Hide vertical scrollbar */
+      overflow-x: hidden; /* Hide horizontal scrollbar */
+    }
+  }
+}
+
+/********** Main Header style **********/
+.main__header {
+  width: 100vw;
+  height: 190px;
+  display: grid;
+  place-items: center;
+  background: url(../../asssets/images/bookshelf.png);
+  padding: 1rem;
+  .search__box {
+    width: 30em;
+    height: 10em;
+    background-color: var.$colorWhite;
+    border-radius: 15px;
+    display: grid;
+    // gap: 3rem;
+    place-items: center;
+    @include mobile {
+      width: 20rem;
+      height: 9rem;
+    }
+    p {
+      line-height: 24.13px;
+      font-weight: 400;
+      color: var.$primaryColor;
+      text-align: center;
+      size: 18px;
+    }
+
+    position: relative;
+    input {
+      border: 1px solid var.$primaryColor;
+      padding: 0.3rem;
+      // length
+      border-radius: 0.5rem;
+      width: 300px;
+      height: 40.79px;
+
+      @include mobile {
+        width: 250px;
+        height: 37.79px;
+      }
+
+      .search__icon {
+        position: absolute;
+        background-color: var.$primaryColor;
+        border: none;
+        border-radius: 50px;
+        box-shadow: 0 0 10px #000;
+        color: #fff;
+        font-size: 15px;
+        height: 50px;
+        margin: 12px;
+        right: 0;
+        transition: all 0.2s;
+        width: 50px;
+        padding: 0.5rem;
+        margin-bottom: 8.5rem;
+      }
+    }
+  }
+}
+
+/********** AvailablePDF's style **********/
+.available__pdfs {
+  width: 800px;
+  max-height: 410px;
+  overflow-y: scroll;
+  display: grid;
+
+  @include mobile {
+    max-height: 610px;
+    width: 400px;
+    // overflow-y: hidden;
+  }
+}
+
+.available__pdfs-heading {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  @include mobile {
+  }
+
+  p {
+    color: var.$colorBlack;
+    font-weight: 500;
+    size: 20px;
+    font-size: 20px;
+    text-align: center;
+  }
+}
+
+.bookpdfs {
+  //   margin-top: 3rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  gap: 1rem;
+}
+
+/********** BookPDF style **********/
+.bookpdf {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  align-items: center;
+  width: 46rem;
+  height: 4.3rem;
+  gap: 0.5rem;
+  background: var.$colorWhite;
+  border-radius: 12px;
+
+  @include mobile() {
+    align-items: baseline;
+    width: 350px;
+    height: 120px;
+    flex-direction: column;
+  }
+
+  .bookpdf__left {
+    gap: 0.5rem;
+
+    .bookpdf__left1 {
+      gap: 1.5rem;
+      display: flex;
+      align-items: center;
+      h6 {
+        color: var.$primaryColor;
+      }
+    }
+
+    span {
+      color: gray;
+    }
+  }
+
+  .bookpdf__right {
+    display: flex;
+    gap: 0.7rem;
+  }
+}
+
+/********** Quotess style **********/
+.quotes {
+  width: 550px;
+  max-height: 410px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  @include mobile() {
+    display: none;
+  }
+}
+
+.quote__heading {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.quotes__words {
+  // margin: 1rem auto;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-direction: column;
+  margin-block: 1rem;
+  //   padding: 0px 24px;
+  //   gap: 302px;
+  //   isolation: isolate;
+  .quote {
+    display: grid;
+    margin: 0 auto;
+    width: 30rem;
+    height: 4.8rem;
+
+    background: #ffffff;
+    border-radius: 12px;
+    place-items: center;
+
+    h5 {
+      display: grid;
+      place-items: center;
+      width: 159px;
+      height: 28px;
+    }
+  }
+}
+
+// .quote__word {
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: space-between;
+//   align-items: center;
+//   padding: 0px 20px;
+//   // gap: 302px;
+//   width: 500px;
+//   height: 70px;
+//   background: var.$colorWhite;
+//   border-radius: 12px;
+// }
