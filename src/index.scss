@@ -13,6 +13,20 @@
   box-sizing: border-box;
 }
 
+/*************** Medium Screen size ***************/
+@mixin tablet {
+  @media screen and (max-width: 1024px) {
+    @content;
+  }
+}
+
+/********** Mobile Screen size **********/
+@mixin mobile {
+  @media screen and (max-width: 720px) {
+    @content;
+  }
+}
+
 /******************** SCSS GLOBAL VARIABLES ********************/
 $grayHue: 240;
 $primaryColor: #29176a;
@@ -62,6 +76,8 @@ body {
   background-color: $secondaryColorLight;
   //  background-color: $primaryColor;
   //  overflow-x: hidden;
+  overflow-y: hidden; /* Hide vertical scrollbar */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 
 .container {
@@ -72,6 +88,27 @@ body {
 
 .link {
   color: $colorWhite;
+}
+
+.btn {
+  display: inline-block;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: $colorWhite;
+  color: $colorBlack;
+  padding: 0.6rem 2.5rem;
+  border: 2px solid transparent;
+  border-radius: 3rem;
+  cursor: pointer;
+  transition: $transition;
+}
+
+.btn:hover {
+  background-color: transparent;
+  border-color: $colorWhiteLight;
+  // transform: translateY(-0.5rem);
 }
 
 .btn-lg {
@@ -126,6 +163,10 @@ hr {
     transition: $transition;
     transform: translateY(-0.2rem);
   }
+
+  @include mobile {
+    padding: 0.2rem 1rem;
+  }
 }
 .btn2 {
   display: flex;
@@ -143,6 +184,10 @@ hr {
     background: $secondaryColor;
     transition: $transition;
     transform: translateY(-0.2rem);
+  }
+
+  @include mobile {
+    padding: 0.2rem 1rem;
   }
 }
 

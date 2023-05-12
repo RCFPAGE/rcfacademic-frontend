@@ -1,0 +1,29 @@
+@use "./../../index" as var; // import global variable as an alias
+
+/*************** Medium Screen size ***************/
+@mixin tablet {
+  @media screen and (max-width: 1024px) {
+    @content;
+  }
+}
+
+/*************** Mobile Screen size ***************/
+@mixin mobile {
+  @media screen and (max-width: 720px) {
+    @content;
+  }
+}
+
+footer {
+  height: 5vh;
+  width: 100vw;
+  display: grid;
+  // text-align: center;
+  // place-items: center;
+  top: 0;
+  left: 0;
+  //   z-index: 9;
+  // position: fixed;
+  background-color: #eefbf6;
+  box-shadow: 0 4px 13px rgb(0 0 0 / 20%);
+}

@@ -12,6 +12,7 @@ import Book10 from "../asssets/pdfs/test10.pdf";
 export const Books = [
   {
     id: 1,
+    category: "school_book",
     href: Book1,
     title: "Mathematics",
     authorName: "Eniola Ademola",
@@ -19,6 +20,7 @@ export const Books = [
   },
   {
     id: 2,
+    category: "school_book",
     href: Book2,
     title: "Medical Biochemistry",
     authorName: "Oyaronbi Oyinkansola",
@@ -26,6 +28,7 @@ export const Books = [
   },
   {
     id: 3,
+    category: "school_book",
     href: Book3,
     title: "The History of Scapular",
     authorName: "DAVEWORLD",
@@ -33,6 +36,7 @@ export const Books = [
   },
   {
     id: 4,
+    category: "school_book",
     href: Book4,
     title: "Introduction to Programming",
     authorName: "Eniola David",
@@ -40,6 +44,7 @@ export const Books = [
   },
   {
     id: 5,
+    category: "school_book",
     href: Book5,
     title: "Complete Python Program Book",
     authorName: "Eniola Ademola",
@@ -47,6 +52,7 @@ export const Books = [
   },
   {
     id: 6,
+    category: "school_book",
     href: Book6,
     title: "GNS201",
     authorName: "Adedeji Ayomide",
@@ -54,6 +60,7 @@ export const Books = [
   },
   {
     id: 7,
+    category: "church_book",
     href: Book7,
     title: "Who is God?",
     authorName: "Ifeoluwa Grace",
@@ -61,6 +68,7 @@ export const Books = [
   },
   {
     id: 8,
+    category: "school_book",
     href: Book8,
     title: "Mental Health",
     authorName: " Ademola",
@@ -68,17 +76,11 @@ export const Books = [
   },
   {
     id: 9,
+    category: "church_book",
     href: Book9,
     title: "100 Days with Jesus",
     authorName: "David Oyakilome",
     numOfPages: 355,
-  },
-  {
-    id: 10,
-    href: Book10,
-    title: "99 Days for the Thief",
-    authorName: "DAVEWORLD",
-    numOfPages: 102,
   },
 ];
 
