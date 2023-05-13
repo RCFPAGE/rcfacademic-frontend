@@ -11,13 +11,15 @@ const MainHeader = ({ query, setQuery }) => {
           Start by searching for the course <br />
           PDF you want to download
         </p>
-        <input
-          placeholder="Search for PDF. . ."
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-        />
-        <div className="search__icon">
-          <Search />
+        <div className="inputField">
+          <input
+            placeholder="Search for PDF. . ."
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
+          <div className="search__icon">
+            <Search />
+          </div>
         </div>
       </div>
     </div>

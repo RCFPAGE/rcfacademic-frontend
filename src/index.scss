@@ -52,17 +52,20 @@ $container-width-md: 90%;
 $transition: all 500ms ease; /* make sure all transition have a constant effect*/
 
 ::-webkit-scrollbar {
-  width: 0.5em;
+  width: 0.3em;
 }
 
 ::-webkit-scrollbar-track {
-  background: $secondaryColor;
+  background: rgba($color: $secondaryColor, $alpha: 0.2);
   margin-block: 0.5rem;
 }
 
 ::-webkit-scrollbar-thumb {
   border-radius: 100vw;
-  background: $secondaryColorLight;
+  background: $secondaryColor;
+  &:hover {
+    background: #000;
+  }
 }
 
 html {

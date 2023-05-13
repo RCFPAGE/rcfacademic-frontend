@@ -8,15 +8,15 @@ const Quotes = () => {
         <h4>Quotes</h4>
         <p>Click the quote icon to copy the specific quotes</p>
       </div>
-      <div className="quotes__words">
+      <ul className="quotes__words">
         {QuoteWords.map(({ id, quote, author }) => {
           return (
-            <h5 key={id} className="quote">
+            <li key={id} className="quote">
               {quote}
-            </h5>
+            </li>
           );
         })}
-      </div>
+      </ul>
     </div>
   );
 };

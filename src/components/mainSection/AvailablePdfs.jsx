@@ -11,16 +11,16 @@ const AvailablePdfs = ({ query, setQuery }) => {
     <div className="available__pdfs">
       <div className="available__pdfs-heading">
         <h4>All available PDF's</h4>
-        <p>
+        <button>
           Filter <Filter />
-        </p>
+        </button>
       </div>
       <div className="bookpdfs">
         {filteredPDFs.map(({ id, title, href, authorName, numOfPages }) => {
           return (
             <div className="bookpdf" key={id}>
               <div className="bookpdf__left">
-                <h4 className="book__title">{title}</h4>
+                <h4 className="title">{title}</h4>
                 <div className="bookpdf__left1">
                   <h6>{authorName}</h6>
                   <span>{numOfPages} pages</span>

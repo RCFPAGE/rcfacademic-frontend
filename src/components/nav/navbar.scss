@@ -23,13 +23,14 @@ nav {
     // place-items: center;
     // position: fixed; 
     background-color: var.$primaryColor;
-    box-shadow: 0 4px 13px rgb(0 0 0 / 20%)
+    box-shadow: 0 4px 13px rgb(0 0 0 / 20%);
 } 
 
 .logo {
     width: 10rem;
     height: 10rem;
     object-fit: contain;
+    // border: 1px solid #fff;
     
     p {
         color: var.$colorWhite;
@@ -38,6 +39,9 @@ nav {
     @include mobile(){
         width: 7rem;
         height: 7rem;
-
     }
+}
+
+h3 {
+    font-size: 1.2rem !important;
 }
