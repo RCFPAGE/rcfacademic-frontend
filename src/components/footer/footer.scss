@@ -17,13 +17,11 @@
 footer {
   height: 5vh;
   width: 100vw;
-  display: grid;
-  // text-align: center;
-  // place-items: center;
-  top: 0;
-  left: 0;
-  //   z-index: 9;
-  // position: fixed;
   background-color: #eefbf6;
   box-shadow: 0 4px 13px rgb(0 0 0 / 20%);
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  display: grid;
+  place-items: center;
 }

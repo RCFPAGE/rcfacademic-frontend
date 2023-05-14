@@ -11,7 +11,9 @@ const LandingPage = () => {
   return (
     <div className="landing__page">
       <MainHeader query={query} setQuery={setQuery} />
+
       <div className="middle__section">
+        
         <div className="middle__section-right"> 
           <div className="pagination">
             <button className="btn">PDF's</button>
@@ -19,6 +21,7 @@ const LandingPage = () => {
           </div>
           <AvailablePdfs query={query} setQuery={setQuery} />
         </div>
+
         <div className="middle__section-left">
           <Quotes />
         </div>
