@@ -163,8 +163,10 @@
     align-items: center;
     gap: 8px;
     border-radius: 8px;
+    transition: var.$transition;
     cursor: pointer;
     &:hover {
+      transition: var.$transition;
       background-color: var.$secondaryColor;
       color: var.$colorWhite;
       svg {
