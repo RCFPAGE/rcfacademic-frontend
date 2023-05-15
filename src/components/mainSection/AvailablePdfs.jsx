@@ -9,8 +9,11 @@ import {
 import { Books } from "../../asssets/data";
 
 const AvailablePdfs = ({ query, setQuery }) => {
+
+  // State for filtered PDFs 
   const [filteredPDFs, setFilteredPDFs] = useState([]);
 
+  // Populate pdf array when page loads
   useEffect(() => {
     setFilteredPDFs(
       Books.filter(({ title }) => {
@@ -18,6 +21,15 @@ const AvailablePdfs = ({ query, setQuery }) => {
       })
     );
   }, []);
+
+  // Populate pdf array when query changes 
+  useEffect(() => {
+    setFilteredPDFs(
+      Books.filter(({ title }) => {
+        return title.toLowerCase().includes(query.toLowerCase());
+      })
+    );
+  }, [query]);
 
   // const filteredPDFs = Books.filter(({ title }) => {
   //   return title.toLowerCase().includes(query.toLowerCase());
@@ -69,7 +81,9 @@ const AvailablePdfs = ({ query, setQuery }) => {
     }
   };
 
-  const searchBasedOnFilterOption = () => {
+  const searchBasedOnFilterOption = (e) => {
+    // console.log(e.target.value);
+    setFilteredPDFs(Books.filter((anyBook) => anyBook.title == e.target.value));
   };
 
   useEffect(() => {
@@ -154,7 +168,7 @@ const AvailablePdfs = ({ query, setQuery }) => {
                 </div>
               </div>
               {filterOptionSelected && (
-                <input type="text" placeholder={switchSerchPlaceholder()} />
+                <input type="text" placeholder={switchSerchPlaceholder()} onChange={(e) => searchBasedOnFilterOption(e)} />
               )}
             </div>
           )}
