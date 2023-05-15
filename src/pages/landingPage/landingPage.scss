@@ -132,8 +132,9 @@
 .available__pdfs {
   // width: 800px;
   max-height: 410px;
+  min-height: 410px;
   overflow-y: scroll;
-  display: grid;
+  // display: grid;
   padding: 1rem 1rem 5rem 2rem;
   // border: 1px solid #000;
 
@@ -149,6 +150,7 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 12px;
+  height: fit-content;
   // border: 1px solid #000;
   @include tablet() {
     padding: 0 1rem;
@@ -180,6 +182,76 @@
         path {
           fill: var.$colorWhite;
         }
+      }
+    }
+  }
+
+  .cta {
+    position: relative;
+    &__dropdown {
+      position: absolute;
+      top: 36px;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      background-color: var.$colorWhite; 
+      padding: 0.6rem;
+      border-radius: 0.5rem;
+
+      .filterArea {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+
+        p {
+          font-size: 0.8rem;
+        }
+
+        .filterContainer {
+          position: relative;
+          // width: 100%;
+          width: 230px;
+          span {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #eee;
+            padding: 0.3rem 0.6rem;
+            width: 100%;
+            border-radius: 0.5rem;
+            font-size: 0.7rem;
+            cursor: pointer;
+          }
+          .filterOptions {
+            position: absolute;
+            background-color: var.$colorWhite;
+            width: 100%;
+            padding: 0.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            border-radius: 0.5rem;
+            span {
+              background-color: var.$colorWhite;
+              &:hover {
+                background-color: #eee;
+              }
+            }
+            // display: none;
+          }
+        }
+      }
+
+      input {
+        display: flex;
+        align-items: center;
+        background-color: #eee;
+        padding: 0.5rem 0.6rem;
+        width: 100%;
+        border-radius: 0.5rem;
+        font-size: 0.7rem;
       }
     }
   }
