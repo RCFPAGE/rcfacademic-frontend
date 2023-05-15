@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   CaretDownIcon,
   CaretUpIcon,
@@ -9,9 +9,19 @@ import {
 import { Books } from "../../asssets/data";
 
 const AvailablePdfs = ({ query, setQuery }) => {
-  const filteredPDFs = Books.filter(({ title }) => {
-    return title.toLowerCase().includes(query.toLowerCase());
-  });
+  const [filteredPDFs, setFilteredPDFs] = useState([]);
+
+  useEffect(() => {
+    setFilteredPDFs(
+      Books.filter(({ title }) => {
+        return title.toLowerCase().includes(query.toLowerCase());
+      })
+    );
+  }, []);
+
+  // const filteredPDFs = Books.filter(({ title }) => {
+  //   return title.toLowerCase().includes(query.toLowerCase());
+  // });
 
   // console.log(filteredPDFs);//log to see filtered result
 
@@ -58,6 +68,21 @@ const AvailablePdfs = ({ query, setQuery }) => {
       return "Search based on faculty...";
     }
   };
+
+  const searchBasedOnFilterOption = () => {
+  };
+
+  useEffect(() => {
+    if (filterOptionSelected == 1) {
+      setFilteredPDFs(Books.filter((anyBook) => anyBook.category == 'school_book'))
+    };
+    if (filterOptionSelected == 2) {
+      setFilteredPDFs(Books.filter((anyBook) => anyBook.category == 'church_book'))
+    };
+    if (filterOptionSelected == 3 || filterOptionSelected == 4 || filterOptionSelected == undefined) {
+      setFilteredPDFs(Books);
+    };
+  }, [filterOptionSelected]);
 
   return (
     <div className="available__pdfs">
