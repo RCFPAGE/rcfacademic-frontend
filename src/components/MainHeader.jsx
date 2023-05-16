@@ -1,4 +1,4 @@
-import { Books } from "../asssets/data";
+// import { Books } from "../asssets/data";
 import { Search } from "../asssets/icon";
 
 const MainHeader = ({ query, setQuery }) => {
@@ -13,7 +13,7 @@ const MainHeader = ({ query, setQuery }) => {
         </p>
         <div className="inputField">
           <input
-            placeholder="Search for PDF. . ."
+            placeholder="Search for All PDF. . ."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
