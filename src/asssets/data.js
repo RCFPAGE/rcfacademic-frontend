@@ -7,7 +7,6 @@ import Book6 from "../asssets/pdfs/test6.pdf";
 import Book7 from "../asssets/pdfs/test7.pdf";
 import Book8 from "../asssets/pdfs/test8.pdf";
 import Book9 from "../asssets/pdfs/test9.pdf";
-import Book10 from "../asssets/pdfs/test10.pdf";
 
 export const Books = [
   {
