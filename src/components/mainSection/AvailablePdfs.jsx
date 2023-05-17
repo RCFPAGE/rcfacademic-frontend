@@ -9,8 +9,7 @@ import {
 import { Books } from "../../asssets/data";
 
 const AvailablePdfs = ({ query, setQuery }) => {
-
-  // State for filtered PDFs 
+  // State for filtered PDFs
   const [filteredPDFs, setFilteredPDFs] = useState([]);
 
   // Populate pdf array when page loads
@@ -22,7 +21,7 @@ const AvailablePdfs = ({ query, setQuery }) => {
     );
   }, []);
 
-  // Populate pdf array when query changes 
+  // Populate pdf array when query changes
   useEffect(() => {
     setFilteredPDFs(
       Books.filter(({ title }) => {
@@ -52,50 +51,60 @@ const AvailablePdfs = ({ query, setQuery }) => {
     if (!filterOptionSelected) {
       return `Select option`;
     }
-    if (filterOptionSelected == filterOptions.schoolBooks) {
+    if (filterOptionSelected === filterOptions.schoolBooks) {
       return "School books";
     }
-    if (filterOptionSelected == filterOptions.churchBooks) {
+    if (filterOptionSelected === filterOptions.churchBooks) {
       return "Church books";
     }
-    if (filterOptionSelected == filterOptions.department) {
+    if (filterOptionSelected === filterOptions.department) {
       return "Department";
     }
-    if (filterOptionSelected == filterOptions.faculty) {
+    if (filterOptionSelected === filterOptions.faculty) {
       return "Faculty";
     }
   };
 
   const switchSerchPlaceholder = () => {
-    if (filterOptionSelected == filterOptions.schoolBooks) {
+    if (filterOptionSelected === filterOptions.schoolBooks) {
       return "Search school books...";
     }
-    if (filterOptionSelected == filterOptions.churchBooks) {
+    if (filterOptionSelected === filterOptions.churchBooks) {
       return "Search church books...";
     }
-    if (filterOptionSelected == filterOptions.department) {
+    if (filterOptionSelected === filterOptions.department) {
       return "Search based on department...";
     }
-    if (filterOptionSelected == filterOptions.faculty) {
+    if (filterOptionSelected === filterOptions.faculty) {
       return "Search based on faculty...";
     }
   };
 
   const searchBasedOnFilterOption = (e) => {
     // console.log(e.target.value);
-    setFilteredPDFs(Books.filter((anyBook) => anyBook.title == e.target.value));
+    setFilteredPDFs(
+      Books.filter((anyBook) => anyBook.title === e.target.value)
+    );
   };
 
   useEffect(() => {
-    if (filterOptionSelected == 1) {
-      setFilteredPDFs(Books.filter((anyBook) => anyBook.category == 'school_book'))
-    };
-    if (filterOptionSelected == 2) {
-      setFilteredPDFs(Books.filter((anyBook) => anyBook.category == 'church_book'))
-    };
-    if (filterOptionSelected == 3 || filterOptionSelected == 4 || filterOptionSelected == undefined) {
+    if (filterOptionSelected === 1) {
+      setFilteredPDFs(
+        Books.filter((anyBook) => anyBook.category === "school_book")
+      );
+    }
+    if (filterOptionSelected === 2) {
+      setFilteredPDFs(
+        Books.filter((anyBook) => anyBook.category === "church_book")
+      );
+    }
+    if (
+      filterOptionSelected === 3 ||
+      filterOptionSelected === 4 ||
+      filterOptionSelected === undefined
+    ) {
       setFilteredPDFs(Books);
-    };
+    }
   }, [filterOptionSelected]);
 
   return (
@@ -168,7 +177,11 @@ const AvailablePdfs = ({ query, setQuery }) => {
                 </div>
               </div>
               {filterOptionSelected && (
-                <input type="text" placeholder={switchSerchPlaceholder()} onChange={(e) => searchBasedOnFilterOption(e)} />
+                <input
+                  type="text"
+                  placeholder={switchSerchPlaceholder()}
+                  onChange={(e) => searchBasedOnFilterOption(e)}
+                />
               )}
             </div>
           )}

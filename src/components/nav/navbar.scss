@@ -2,46 +2,46 @@
 
 /*************** Medium Screen size ***************/
 @mixin tablet {
-    @media screen and (max-width: 1024px) {
-        @content;
-    }
+  @media screen and (max-width: 1024px) {
+    @content;
+  }
 }
 
 /*************** Mobile Screen size ***************/
 @mixin mobile {
-    @media screen and (max-width: 720px) {
-        @content;
-    }
+  @media screen and (max-width: 720px) {
+    @content;
+  }
 }
 
 nav {
-    height: 10vh;
-    min-width: 100vw;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    // place-items: center;
-    // position: fixed; 
-    background-color: var.$primaryColor;
-    box-shadow: 0 4px 13px rgb(0 0 0 / 20%);
-} 
-
-.logo {
-    width: 10rem;
-    height: 10rem;
-    object-fit: contain;
-    // border: 1px solid #fff;
-    
-    p {
-        color: var.$colorWhite;
-    }
-    
-    @include mobile(){
-        width: 7rem;
-        height: 7rem;
-    }
+  height: 10vh;
+  min-width: 100vw;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  // place-items: center;
+  // position: fixed;
+  background-color: var.$primaryColor;
+  box-shadow: 0 4px 13px rgb(0 0 0 / 20%);
 }
 
-h3 {
+.logo {
+  width: 7rem;
+  height: 3rem;
+  object-fit: contain;
+  // border: 1px solid #fff;
+
+  p {
+    color: var.$colorWhite;
+  }
+
+  @include mobile() {
+    width: 7rem;
+    height: 7rem;
+  }
+  h3 {
+    text-align: center;
     font-size: 1.2rem !important;
+  }
 }
