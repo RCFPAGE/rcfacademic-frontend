@@ -1,10 +1,11 @@
 import React from "react";
 import { QuoteWords } from "../../asssets/data";
+import { QuoteIcon } from "../../asssets/icon";
 
 const Quotes = () => {
   return (
     <div className="quotes">
-      <div className="quote__heading">
+      <div className="quotes__heading">
         <h4>Quotes</h4>
         <p>Click the quote icon to copy the specific quotes</p>
       </div>
@@ -12,6 +13,9 @@ const Quotes = () => {
         {QuoteWords.map(({ id, quote, author }) => {
           return (
             <li key={id} className="quote">
+              <span>
+                <QuoteIcon />
+              </span>
               {quote}
             </li>
           );
