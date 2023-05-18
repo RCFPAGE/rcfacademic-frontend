@@ -17,6 +17,7 @@ export const Books = [
     authorName: "Eniola Ademola",
     numOfPages: 355,
     department: "mathematics",
+    faculty: "Faculty of Basic and Applied Science",
   },
   {
     id: 2,
@@ -26,6 +27,7 @@ export const Books = [
     authorName: "Oyaronbi Oyinkansola",
     numOfPages: 455,
     department: "medicine",
+    faculty: "Faculty of Medicine",
   },
   {
     id: 3,
@@ -35,6 +37,7 @@ export const Books = [
     authorName: "DAVEWORLD",
     numOfPages: 55,
     department: "medcine",
+    faculty: "Faculty of Medicine",
   },
   {
     id: 4,
@@ -44,6 +47,7 @@ export const Books = [
     authorName: "Eniola David",
     numOfPages: 355,
     department: "informatio communication technology",
+    faculty: "Faculty of Communication Information Technology",
   },
   {
     id: 5,
@@ -53,6 +57,7 @@ export const Books = [
     authorName: "Eniola Ademola",
     numOfPages: 239,
     department: "informatio communication technology",
+    faculty: "Faculty of Communication Information Technology",
   },
   {
     id: 6,
@@ -62,6 +67,7 @@ export const Books = [
     authorName: "Adedeji Ayomide",
     numOfPages: 355,
     department: "English",
+    faculty: "Facculty of English",
   },
   {
     id: 7,
@@ -71,6 +77,7 @@ export const Books = [
     authorName: "Ifeoluwa Grace",
     numOfPages: 355,
     department: "church",
+    faculty: "church",
   },
   {
     id: 8,
@@ -80,6 +87,7 @@ export const Books = [
     authorName: " Ademola",
     numOfPages: 23,
     department: "nursing",
+    faculty: "Faculty of Medicine",
   },
   {
     id: 9,
@@ -89,6 +97,7 @@ export const Books = [
     authorName: "David Oyakilome",
     numOfPages: 355,
     department: "church",
+    faculty: "church",
   },
 ];
 
