@@ -16,6 +16,7 @@ export const Books = [
     title: "Mathematics",
     authorName: "Eniola Ademola",
     numOfPages: 355,
+    department: "mathematics",
   },
   {
     id: 2,
@@ -24,6 +25,7 @@ export const Books = [
     title: "Medical Biochemistry",
     authorName: "Oyaronbi Oyinkansola",
     numOfPages: 455,
+    department: "medicine",
   },
   {
     id: 3,
@@ -32,6 +34,7 @@ export const Books = [
     title: "The History of Scapular",
     authorName: "DAVEWORLD",
     numOfPages: 55,
+    department: "medcine",
   },
   {
     id: 4,
@@ -40,6 +43,7 @@ export const Books = [
     title: "Introduction to Programming",
     authorName: "Eniola David",
     numOfPages: 355,
+    department: "informatio communication technology",
   },
   {
     id: 5,
@@ -48,6 +52,7 @@ export const Books = [
     title: "Complete Python Program Book",
     authorName: "Eniola Ademola",
     numOfPages: 239,
+    department: "informatio communication technology",
   },
   {
     id: 6,
@@ -56,6 +61,7 @@ export const Books = [
     title: "GNS201",
     authorName: "Adedeji Ayomide",
     numOfPages: 355,
+    department: "English",
   },
   {
     id: 7,
@@ -64,6 +70,7 @@ export const Books = [
     title: "Who is God?",
     authorName: "Ifeoluwa Grace",
     numOfPages: 355,
+    department: "church",
   },
   {
     id: 8,
@@ -72,6 +79,7 @@ export const Books = [
     title: "Mental Health",
     authorName: " Ademola",
     numOfPages: 23,
+    department: "nursing",
   },
   {
     id: 9,
@@ -80,6 +88,7 @@ export const Books = [
     title: "100 Days with Jesus",
     authorName: "David Oyakilome",
     numOfPages: 355,
+    department: "church",
   },
 ];
 
