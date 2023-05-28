@@ -1,6 +1,7 @@
 import React from "react";
 import { QuoteWords } from "../../asssets/data";
 import { QuoteIcon } from "../../asssets/icon";
+import { motion } from "framer-motion";
 
 const Quotes = () => {
   return (
@@ -12,12 +13,18 @@ const Quotes = () => {
       <ul className="quotes__words">
         {QuoteWords.map(({ id, quote, author }) => {
           return (
-            <li key={id} className="quote">
+            <motion.li
+              key={id}
+              className="quote"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.2, ease: "linear" }}
+            >
               <span>
                 <QuoteIcon />
               </span>
               {quote}
-            </li>
+            </motion.li>
           );
         })}
       </ul>

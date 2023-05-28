@@ -7,6 +7,7 @@ import {
   Filter,
 } from "../../asssets/icon";
 import { Books } from "../../asssets/data";
+import { motion } from "framer-motion";
 
 const AvailablePdfs = ({ query, setQuery }) => {
   // State for filtered PDFs
@@ -81,6 +82,11 @@ const AvailablePdfs = ({ query, setQuery }) => {
   };
 
   const searchBasedOnFilterOption = (e) => {
+    // console.log('e.target.value: ', e.target.value);
+    // if (!e.target.value || e.target.value == '') {
+    //   setFilteredPDFs(Books);
+    // }
+
     // console.log(e.target.value);
     setFilteredPDFs(
       Books.filter((anyBook) => anyBook.title === e.target.value)
@@ -127,7 +133,7 @@ const AvailablePdfs = ({ query, setQuery }) => {
                       setFilterOptionsIsVisible(!filterOptionsIsVisible)
                     }
                   >
-                    {switchFilterName()}{" "}
+                    {switchFilterName()}
                     {filterOptionsIsVisible ? (
                       <CaretUpIcon />
                     ) : (
@@ -180,7 +186,7 @@ const AvailablePdfs = ({ query, setQuery }) => {
                 <input
                   type="text"
                   placeholder={switchSerchPlaceholder()}
-                  onChange={(e) => searchBasedOnFilterOption(e)}
+                  onChange={searchBasedOnFilterOption}
                 />
               )}
             </div>
@@ -190,7 +196,13 @@ const AvailablePdfs = ({ query, setQuery }) => {
       <div className="bookpdfs">
         {filteredPDFs.map(({ id, title, href, authorName, numOfPages }) => {
           return (
-            <div className="bookpdf" key={id}>
+            <motion.div
+              className="bookpdf"
+              key={id}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.2, ease: "linear" }}
+            >
               <div className="bookpdf__left">
                 <h4 className="title">{title}</h4>
                 <div className="bookpdf__left1">
@@ -218,7 +230,7 @@ const AvailablePdfs = ({ query, setQuery }) => {
                   Download <Download />
                 </a>
               </div>
-            </div>
+            </motion.div>
           );
         })}
       </div>
