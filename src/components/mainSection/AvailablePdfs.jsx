@@ -12,6 +12,7 @@ import { motion } from "framer-motion";
 const AvailablePdfs = ({ query, setQuery }) => {
   // State for filtered PDFs
   const [filteredPDFs, setFilteredPDFs] = useState([]);
+  const [filteredPDFsCopy, setFilteredPDFsCopy] = useState(filteredPDFs);
 
   // Populate pdf array when page loads
   useEffect(() => {
@@ -35,7 +36,7 @@ const AvailablePdfs = ({ query, setQuery }) => {
   //   return title.toLowerCase().includes(query.toLowerCase());
   // });
 
-  // console.log(filteredPDFs);//log to see filtered result
+  // console.log(filteredPDFs); //log to see filtered result
 
   const [filterDropdownIsVisible, setFilterDropdownIsVisible] = useState(false);
   const [filterOptionsIsVisible, setFilterOptionsIsVisible] = useState(false);
@@ -82,15 +83,24 @@ const AvailablePdfs = ({ query, setQuery }) => {
   };
 
   const searchBasedOnFilterOption = (e) => {
-    // console.log('e.target.value: ', e.target.value);
-    // if (!e.target.value || e.target.value == '') {
-    //   setFilteredPDFs(Books);
+    console.log("e.target.value: ", e.target.value);
+    console.log(filteredPDFs);
+    // if (!e.target.value || e.target.value == "") {
+    //   setFilteredPDFs(
+    //     Books.filter(({ title }) => {
+    //       return title.toLowerCase().includes(e.target.value.toLowerCase());
+    //     })
+    //   );
+    // }
+    // if (!e.target.value || e.target.value === "") {
+
     // }
 
-    // console.log(e.target.value);
-    setFilteredPDFs(
-      Books.filter((anyBook) => anyBook.title === e.target.value)
-    );
+    setFilteredPDFs(() => {
+      return filteredPDFs.filter(({ title }) => {
+        return title.toLowerCase().includes(e.target.value.toLowerCase());
+      });
+    });
   };
 
   useEffect(() => {
@@ -104,11 +114,17 @@ const AvailablePdfs = ({ query, setQuery }) => {
         Books.filter((anyBook) => anyBook.category === "church_book")
       );
     }
-    if (
-      filterOptionSelected === 3 ||
-      filterOptionSelected === 4 ||
-      filterOptionSelected === undefined
-    ) {
+    if (filterOptionSelected === 3) {
+      setFilteredPDFs(
+        Books.filter((anyBook) => anyBook.category === "Faculty")
+      );
+    }
+    if (filterOptionSelected === 4) {
+      setFilteredPDFs(
+        Books.filter((anyBook) => anyBook.category === "Department")
+      );
+    }
+    if (filterOptionSelected === undefined) {
       setFilteredPDFs(Books);
     }
   }, [filterOptionSelected]);
