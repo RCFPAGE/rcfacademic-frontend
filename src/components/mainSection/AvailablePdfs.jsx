@@ -23,6 +23,15 @@ const AvailablePdfs = ({ query, setQuery }) => {
     );
   }, []);
 
+  // Populate pdf array when input field is empty
+  useEffect(() => {
+    setFilteredPDFs(
+      Books.filter(({ title }) => {
+        return title.toLowerCase().includes(query.toLowerCase());
+      })
+    );
+  }, []);
+
   // Populate pdf array when query changes
   useEffect(() => {
     setFilteredPDFs(
@@ -96,11 +105,18 @@ const AvailablePdfs = ({ query, setQuery }) => {
 
     // }
 
+    // Check if value is less than 1, then reset filtered pdfs array
+    if(e.target.value < 1) {
+      setFilteredPDFs(Books);
+      return;
+    }
+
     setFilteredPDFs(() => {
       return filteredPDFs.filter(({ title }) => {
         return title.toLowerCase().includes(e.target.value.toLowerCase());
       });
     });
+
   };
 
   useEffect(() => {
