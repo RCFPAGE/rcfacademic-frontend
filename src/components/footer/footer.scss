@@ -25,4 +25,10 @@ footer {
   display: grid;
   grid-template-columns: 1fr 1fr;
   place-items: center;
+
+  .up__footer {
+    display: flex;
+    justify-content: center;
+    gap: 0.3rem;
+  }
 }

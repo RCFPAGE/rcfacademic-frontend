@@ -5,10 +5,15 @@ import { Instagram } from "../../asssets/icon";
 const Footer = () => {
   return (
     <footer>
-      <div>
+      <a
+        href="https://www.instagram.com/rcfuniosunosogbo/"
+        className="up__footer"
+        target="_blank"
+        rel="noreferrer"
+      >
         <Instagram /> Follow us on IG
-      </div>
-      <div>Contact Developer</div>
+      </a>
+      <a href="mailto:it.eniolaademola@gmail.com">Contact Developer</a>
     </footer>
   );
 };
