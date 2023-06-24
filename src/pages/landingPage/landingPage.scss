@@ -278,6 +278,37 @@
   @include tablet() {
     padding: 0 1rem;
   }
+
+  .errorContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    margin-top: 16px;
+    svg {
+      width: 70px;
+      height: 70px;
+    }
+    h2 {
+      font-size: 20px;
+    }
+    p {
+      font-size: 12px;
+      width: 80%;
+      text-align: center;
+    }
+    button {
+      background-color: var.$primaryColor;
+      color: var.$colorWhite;
+      padding: 12px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      &:hover {
+        background-color: var.$secondaryColor;
+        color: var.$colorWhite;
+      }
+    }
+  }
 }
 
 /********** BookPDF style **********/
