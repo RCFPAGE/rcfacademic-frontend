@@ -11,9 +11,9 @@ const Footer = () => {
         target="_blank"
         rel="noreferrer"
       >
-        <Instagram /> Follow us on IG
+        <Instagram /> <p>Follow us on IG</p>
       </a>
-      <a href="mailto:it.eniolaademola@gmail.com">Contact Developer</a>
+      <a href="mailto:it.eniolaademola@gmail.com"><p>Contact Developer</p></a>
     </footer>
   );
 };
