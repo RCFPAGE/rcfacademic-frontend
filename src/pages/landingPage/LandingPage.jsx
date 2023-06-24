@@ -12,7 +12,6 @@ const LandingPage = () => {
   const [pdfIsVisible, setPdfIsVisible] = useState(true);
 
   const onMobile = useResponsive();
-  console.log("Mobile status:", onMobile);
 
   return (
     <div className="landing__page">

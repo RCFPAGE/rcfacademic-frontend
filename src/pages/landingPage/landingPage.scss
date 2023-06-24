@@ -357,6 +357,54 @@
   padding: 1rem 1rem 3rem 1rem;
   @include mobile() {
   }
+  .popup {
+    position: fixed;
+    top: 13%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var.$secondaryColor;
+    // background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 15px;
+    opacity: 0;
+    animation: fade-in 1s forwards;
+  }
+
+  .popup::before {
+    content: "\f00c";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 24px;
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .popup-message {
+    margin-top: 10px;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
 
   &__heading {
     // padding: 1rem;
@@ -373,9 +421,6 @@
     flex-direction: column;
     margin-block: 1rem;
     list-style: none;
-    //   padding: 0px 24px;
-    //   gap: 302px;
-    //   isolation: isolate;
     .quote {
       padding: 0.5rem 1rem;
       width: 100%;

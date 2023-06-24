@@ -14,13 +14,13 @@ const AvailablePdfs = ({ query, setQuery }) => {
   const [filteredPDFs, setFilteredPDFs] = useState([]);
 
   // Populate pdf array when page loads
-  useEffect(() => {
-    setFilteredPDFs(
-      Books.filter(({ title }) => {
-        return title.toLowerCase().includes(query.toLowerCase());
-      })
-    );
-  }, []);
+  // useEffect(() => {
+  //   setFilteredPDFs(
+  //     Books.filter(({ title }) => {
+  //       return title.toLowerCase().includes(query.toLowerCase());
+  //     })
+  //   );
+  // }, []);
 
   // Populate pdf array when query changes
   useEffect(() => {
@@ -35,7 +35,11 @@ const AvailablePdfs = ({ query, setQuery }) => {
   //   return title.toLowerCase().includes(query.toLowerCase());
   // });
 
-  // console.log(filteredPDFs);//log to see filtered result
+  // console.log(filteredPDFs); //log to see filtered result
+
+  const sortedBooks = filteredPDFs.sort((a, b) =>
+    a.title.localeCompare(b.title)
+  );
 
   const [filterDropdownIsVisible, setFilterDropdownIsVisible] = useState(false);
   const [filterOptionsIsVisible, setFilterOptionsIsVisible] = useState(false);
@@ -82,15 +86,73 @@ const AvailablePdfs = ({ query, setQuery }) => {
   };
 
   const searchBasedOnFilterOption = (e) => {
-    // console.log('e.target.value: ', e.target.value);
-    // if (!e.target.value || e.target.value == '') {
-    //   setFilteredPDFs(Books);
-    // }
+    // console.log("e.target.value: ", e.target.value);
+    // console.log(filteredPDFs);
+    if (filterOptionSelected === 1) {
+      setFilteredPDFs(() => {
+        return filteredPDFs.filter(({ title }) => {
+          return title.toLowerCase().includes(e.target.value.toLowerCase());
+        });
+      });
+    }
+    if (filterOptionSelected === 2) {
+      setFilteredPDFs(() => {
+        return filteredPDFs.filter(({ title }) => {
+          return title.toLowerCase().includes(e.target.value.toLowerCase());
+        });
+      });
+    }
+    if (filterOptionSelected === 3) {
+      setFilteredPDFs(() => {
+        return filteredPDFs.filter(({ faculty }) => {
+          return faculty.toLowerCase().includes(e.target.value.toLowerCase());
+        });
+      });
+    }
+    if (filterOptionSelected === 4) {
+      setFilteredPDFs(() => {
+        return filteredPDFs.filter(({ department }) => {
+          return department
+            .toLowerCase()
+            .includes(e.target.value.toLowerCase());
+        });
+      });
+    }
+    if (filterOptionSelected === undefined) {
+      setFilteredPDFs(Books);
+    }
 
-    // console.log(e.target.value);
-    setFilteredPDFs(
-      Books.filter((anyBook) => anyBook.title === e.target.value)
-    );
+    // const filteredPdf = filteredPDFs.filter(({ title }) =>
+    //   title.toLowerCase().includes(e.target.value.toLowerCase())
+    // );
+
+    // return filteredPdf;
+
+    if (e.target.value < 1) {
+      if (filterOptionSelected === 1) {
+        setFilteredPDFs(
+          Books.filter((anyBook) => anyBook.category === "school_book")
+        );
+      }
+      if (filterOptionSelected === 2) {
+        setFilteredPDFs(
+          Books.filter((anyBook) => anyBook.category === "church_book")
+        );
+      }
+      if (filterOptionSelected === 3) {
+        setFilteredPDFs(
+          Books.filter((anyBook) => anyBook.category !== "church_book")
+        );
+      }
+      if (filterOptionSelected === 4) {
+        setFilteredPDFs(
+          Books.filter((anyBook) => anyBook.category !== "church_book")
+        );
+      }
+      if (filterOptionSelected === undefined) {
+        setFilteredPDFs(Books);
+      }
+    }
   };
 
   useEffect(() => {
@@ -104,11 +166,17 @@ const AvailablePdfs = ({ query, setQuery }) => {
         Books.filter((anyBook) => anyBook.category === "church_book")
       );
     }
-    if (
-      filterOptionSelected === 3 ||
-      filterOptionSelected === 4 ||
-      filterOptionSelected === undefined
-    ) {
+    if (filterOptionSelected === 3) {
+      setFilteredPDFs(
+        Books.filter((anyBook) => anyBook.category !== "church_book")
+      );
+    }
+    if (filterOptionSelected === 4) {
+      setFilteredPDFs(
+        Books.filter((anyBook) => anyBook.category !== "church_book")
+      );
+    }
+    if (filterOptionSelected === undefined) {
       setFilteredPDFs(Books);
     }
   }, [filterOptionSelected]);
@@ -194,7 +262,10 @@ const AvailablePdfs = ({ query, setQuery }) => {
         </div>
       </div>
       <div className="bookpdfs">
-        {filteredPDFs.map(({ id, title, href, authorName, numOfPages }) => {
+        {sortedBooks.length === 0 && (
+          <p>Hey, the PDF is currently unavailable</p>
+        )}
+        {sortedBooks.map(({ id, title, href, authorName, numOfPages }) => {
           return (
             <motion.div
               className="bookpdf"
