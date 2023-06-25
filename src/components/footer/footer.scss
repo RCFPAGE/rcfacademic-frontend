@@ -17,7 +17,7 @@
 footer {
   height: 5vh;
   width: 100vw;
-  background-color: var.$primaryColor;
+  background-color: lighten(var.$primaryColor, 1%);
   box-shadow: 0 4px 13px rgb(0 0 0 / 20%);
   bottom: 0;
   left: 0;
@@ -36,7 +36,7 @@ footer {
       }
       svg {
         path {
-          fill: #eefbf6; 
+          fill: #eefbf6;
         }
       }
     }
