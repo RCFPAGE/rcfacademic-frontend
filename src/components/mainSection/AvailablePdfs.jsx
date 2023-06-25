@@ -28,7 +28,9 @@ const AvailablePdfs = ({ query, setQuery }) => {
   }, [query]);
 
   useEffect(() => {
-    setSortedBooks(filteredPDFs.sort((a, b) => a.title.localeCompare(b.title)));
+    setSortedBooks(
+      filteredPDFs.sort((a, b) => a.department.localeCompare(b.department))
+    );
   }, [filteredPDFs]);
 
   const filterOptions = {
@@ -72,11 +74,22 @@ const AvailablePdfs = ({ query, setQuery }) => {
   };
 
   const searchBasedOnFilterOption = (e) => {
-    const filteredPdf = filteredParentPDFs.filter(({ title }) =>
-      title.toLowerCase().includes(e.target.value.toLowerCase())
-    );
-
-    setFilteredPDFs(filteredPdf);
+    if (filterOptionSelected === 3) {
+      const filteredPdf = filteredParentPDFs.filter(({ faculty }) => {
+        return faculty.toLowerCase().includes(e.target.value.toLowerCase());
+      });
+      setFilteredPDFs(filteredPdf);
+    } else if (filterOptionSelected === 4) {
+      const filteredPdf = filteredParentPDFs.filter(({ department }) => {
+        return department.toLowerCase().includes(e.target.value.toLowerCase());
+      });
+      setFilteredPDFs(filteredPdf);
+    } else {
+      const filteredPdf = filteredParentPDFs.filter(({ title }) => {
+        return title.toLowerCase().includes(e.target.value.toLowerCase());
+      });
+      setFilteredPDFs(filteredPdf);
+    }
   };
 
   useEffect(() => {
@@ -238,45 +251,47 @@ const AvailablePdfs = ({ query, setQuery }) => {
             {/* <p>Hey, the PDF is currently unavailable</p> */}
           </div>
         )}
-        {sortedBooks.map(({ id, title, href, authorName, numOfPages }) => {
-          return (
-            <motion.div
-              className="bookpdf"
-              key={id}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.2, ease: "linear" }}
-            >
-              <div className="bookpdf__left">
-                <h4 className="title">{title}</h4>
-                <div className="bookpdf__left1">
-                  <h6>{authorName}</h6>
-                  <span>{numOfPages} pages</span>
+        {sortedBooks.map(
+          ({ id, title, href, faculty, numOfPages, department }) => {
+            return (
+              <motion.div
+                className="bookpdf"
+                key={id}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.2, ease: "linear" }}
+              >
+                <div className="bookpdf__left">
+                  <h4 className="title">{title}</h4>
+                  <div className="bookpdf__left1">
+                    <h6>{faculty + " | " + department}</h6>
+                    <span>{numOfPages} pages</span>
+                  </div>
                 </div>
-              </div>
-              <div className="bookpdf__right">
-                <a
-                  href={href}
-                  target="_blank"
-                  rel="noreferrer noopenner"
-                  className="btn1"
-                >
-                  Preview
-                  <Eye />
-                </a>
-                <a
-                  href={href}
-                  target="_blank"
-                  download={title}
-                  rel="noreferrer noopenner"
-                  className="btn2"
-                >
-                  Download <Download />
-                </a>
-              </div>
-            </motion.div>
-          );
-        })}
+                <div className="bookpdf__right">
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noreferrer noopenner"
+                    className="btn1"
+                  >
+                    Preview
+                    <Eye />
+                  </a>
+                  <a
+                    href={href}
+                    target="_blank"
+                    download={title}
+                    rel="noreferrer noopenner"
+                    className="btn2"
+                  >
+                    Download <Download />
+                  </a>
+                </div>
+              </motion.div>
+            );
+          }
+        )}
       </div>
     </div>
   );
