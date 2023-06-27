@@ -19,8 +19,8 @@ import McQGanong from "../asssets/pdfs/schoolBook/healthSciences/MCQs from bluep
 import PQMBAna from "../asssets/pdfs/schoolBook/healthSciences/anatomy_MCQ.pdf";
 import McQMedPhy from "../asssets/pdfs/schoolBook/healthSciences/mcqs-in-medical-physiology-2014-esp.pdf";
 import McQsBloodHae from "../asssets/pdfs/schoolBook/healthSciences/MCQS_in_Blood.pdf";
-// import McQBank from "../asssets/pdfs/schoolBook/healthSciences/.pdf";
-// import McQBank from "../asssets/pdfs/schoolBook/healthSciences/.pdf";
+import Nutrition from "../asssets/pdfs/schoolBook/healthSciences/NUTRITIONAL VARIATION THROUGHOUT LIFE CYCLE.pptx";
+import UrinaryEli from "../asssets/pdfs/schoolBook/healthSciences/URINARY ELIMINATION_1.pptx";
 // import McQBank from "../asssets/pdfs/schoolBook/healthSciences/.pdf";
 
 // SET
@@ -252,20 +252,20 @@ export const Books = [
     department: "Biology",
     faculty: "Faculty of Basic Clinical Sciences",
   },
-  {
-    id: 41,
-    category: "school_book",
-    // href: BCH301,
-    title: "",
-    authorName: "",
-    numOfPages: 50,
-    department: "Pysiology",
-    faculty: "Faculty of Health Sciences",
-  },
+  // {
+  //   id: 41,
+  //   category: "school_book",
+  //   // href: BCH301,
+  //   title: "",
+  //   authorName: "",
+  //   numOfPages: 50,
+  //   department: "Pysiology",
+  //   faculty: "Faculty of Health Sciences",
+  // },
   {
     id: 42,
     category: "school_book",
-    // href: BCH301,
+    href: Nutrition,
     title: "Nutrition",
     authorName: "UNIOSUN",
     numOfPages: 7,
@@ -275,7 +275,7 @@ export const Books = [
   {
     id: 43,
     category: "school_book",
-    // href: BCH301,
+    href: UrinaryEli,
     title: "Urinary Elimination",
     authorName: "UNIOSUN",
     numOfPages: 45,
